@@ -10,12 +10,12 @@
       "id": 2,
       "name": "Cool",
       "quantity": 3,
-      "bought": true
+      "bought": false
     },
     {
       "name": "1231",
       "quantity": 62312321,
-      "bought": false,
+      "bought": true,
       "id": 6
     },
     {
@@ -27,7 +27,7 @@
     {
       "name": "Привет",
       "quantity": 5,
-      "bought": true,
+      "bought": false,
       "id": 9
     },
     {
@@ -39,7 +39,7 @@
     {
       "name": "ssss",
       "quantity": 0,
-      "bought": true,
+      "bought": false,
       "id": 11
     },
     {
@@ -53,6 +53,12 @@
       "quantity": 4,
       "bought": false,
       "id": 15
+    },
+    {
+      "name": "qwew22",
+      "quantity": 5,
+      "bought": false,
+      "id": 16
     }
   ]
 }

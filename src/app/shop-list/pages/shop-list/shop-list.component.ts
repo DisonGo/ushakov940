@@ -10,6 +10,8 @@ import { ShopListService } from 'src/app/shared/services/shop-list.service';
   styleUrls: ['./shop-list.component.css']
 })
 export class ShopListComponent implements OnInit {
+  nameSortTurn = true
+  quantitySortTurn = true
   shopList:Purchase[]  =  []
   sortSelected:keyof Purchase = "name"
   showAddingRow = false
@@ -28,7 +30,27 @@ export class ShopListComponent implements OnInit {
     }
   }
   sortBy(array:Purchase[], prop: keyof Purchase) {
-    return array.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
+    if(this.sortSelected == "name"){
+      if(this.nameSortTurn){
+        return array.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
+      }else{
+        return array.sort((a, b) => a[prop] < b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
+      }
+    }else{
+      if(this.quantitySortTurn){
+        return array.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
+      }else{
+        return array.sort((a, b) => a[prop] < b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
+      }
+    }
+  }
+  changeSortSelected(sort:keyof Purchase){
+    this.sortSelected = sort
+    if(sort=="name"){
+      this.nameSortTurn = !this.nameSortTurn
+    }else{
+      this.quantitySortTurn = !this.quantitySortTurn
+    }
   }
   getBougth() {
     return this.shopList.filter((a) => {return a.bought});
