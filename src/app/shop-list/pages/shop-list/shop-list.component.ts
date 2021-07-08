@@ -39,6 +39,16 @@ export class ShopListComponent implements OnInit {
   startAdding(){
     this.showAddingRow = true
   }
+  async deleteRow(id:number){
+    try{
+      await this.listService.deletePurchase(id)
+    }catch(error){
+      console.log(error);
+      
+    }finally{
+      this.getShopList()
+    }
+  }
   async bougthEdited(purchase:Purchase){
     try{
       purchase.bought = !purchase.bought 

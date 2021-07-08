@@ -12,8 +12,8 @@
       <td>{{purchase.quantity}}</td>
       <td class="d-flex flex-row justify-content-between">
         <input type="checkbox" [checked]=purchase.bought [(ngModel)]="purchase.bought" (input)="bougthEdited(purchase)">
-        <div class="editBut">
-          <img src="assets/imgs/edit.png" alt="">
+        <div class="editBut" style="color:red;" (click)="deleteRow(purchase.id)">
+          X
         </div>
       </td>
 
@@ -23,8 +23,8 @@
       <td>{{purchase.quantity}}</td>
       <td class="d-flex flex-row justify-content-between">
         <input type="checkbox" [checked]=purchase.bought [(ngModel)]="purchase.bought" (input)="bougthEdited(purchase)">
-        <div class="editBut">
-          <img src="assets/imgs/edit.png" alt="">
+        <div class="editBut" style="color:red;" (click)="deleteRow(purchase.id)">
+          X
         </div>
       </td>
 
