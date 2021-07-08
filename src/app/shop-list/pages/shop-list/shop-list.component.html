@@ -8,13 +8,6 @@
   </thead>
   <tbody>
     <tr *ngFor="let purchase of sortBy(getNotBougth(),sortSelected)" [ngClass]="{'table-success': purchase.bought}">
-        <!-- <ng-container *ngIf="expression; else elseTemplate">
-            
-        </ng-container>
-        <ng-template #elseTemplate>
-            
-        </ng-template>
-         -->
       <td>{{purchase.name}}</td>
       <td>{{purchase.quantity}}</td>
       <td class="d-flex flex-row justify-content-between">
