@@ -1,0 +1,63 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" style="cursor: pointer;" (click)="sortSelected = 'name'">Товар</th>
+      <th scope="col" style="cursor: pointer;" (click)="sortSelected = 'quantity'">Количество</th>
+      <th scope="col">Куплено</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let purchase of sortBy(getNotBougth(),sortSelected)" [ngClass]="{'table-success': purchase.bought}">
+        <!-- <ng-container *ngIf="expression; else elseTemplate">
+            
+        </ng-container>
+        <ng-template #elseTemplate>
+            
+        </ng-template>
+         -->
+      <td>{{purchase.name}}</td>
+      <td>{{purchase.quantity}}</td>
+      <td class="d-flex flex-row justify-content-between">
+        <input type="checkbox" [checked]=purchase.bought [(ngModel)]="purchase.bought" (input)="bougthEdited(purchase)">
+        <div class="editBut">
+          <img src="assets/imgs/edit.png" alt="">
+        </div>
+      </td>
+
+    </tr>
+    <tr *ngFor="let purchase of sortBy(getBougth(),sortSelected)" [ngClass]="{'table-success': purchase.bought}">
+      <td>{{purchase.name}}</td>
+      <td>{{purchase.quantity}}</td>
+      <td class="d-flex flex-row justify-content-between">
+        <input type="checkbox" [checked]=purchase.bought [(ngModel)]="purchase.bought" (input)="bougthEdited(purchase)">
+        <div class="editBut">
+          <img src="assets/imgs/edit.png" alt="">
+        </div>
+      </td>
+
+    </tr>
+    <tr id="addingRow" [ngStyle]="{'display': showAddingRow? 'table-row':'none'}">
+      <td><input type="text" id="nameInput" #nameInput="ngModel" [(ngModel)]="addingInputs.name" required minlength="3"
+          placeholder="Имя товара" class="form-control addingInputs"></td>
+      <td><input type="number" id="quantityInput" [(ngModel)]="addingInputs.quantity"
+          onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+          min="1" placeholder="Количество товара" class="form-control addingInputs" value="1"></td>
+      <td class="d-flex flex-row justify-content-between" style="height: 2.6rem;">
+        <button class="UIButs btn-success" (click)="endAdding(true)"
+          [disabled]="nameInput.errors?.required|| nameInput.errors?.minlength">
+          <p>ok</p>
+          <img src="" alt="">
+        </button>
+        <button class="UIButs btn-danger" (click)="endAdding(false)">
+          <p>nope</p>
+          <img src="" alt="">
+        </button>
+      </td>
+    </tr>
+    <tr class="table-dark" (click)="startAdding()">
+      <td>+ Добавить новый</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

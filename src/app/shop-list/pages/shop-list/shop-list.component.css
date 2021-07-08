@@ -1,0 +1,41 @@
+.table-dark{
+    transition: .2s;
+    cursor: pointer;
+}
+.table-dark:hover{
+    filter: invert(1);
+}
+.editBut{
+    cursor: pointer;
+    border-radius: 5px;
+}
+.UIButs{
+    flex-grow: 0.5;
+    display: flex;
+    cursor: pointer;
+
+}
+.UIButs:disabled{
+    color: dimgray;
+}
+.UIButs>p{
+    margin: auto;
+}
+
+#addingRow>td{
+    padding: 0;
+}
+.addingInputs{
+    height: 2.6rem;
+    border-radius: 0;
+}
+.addingInputs:focus{
+    border-color: none;
+    box-shadow: none;
+    outline:  0 none ; 
+}
+.deleteBut{
+    bottom: 5px;
+    right: 5px;
+    background-color: white;
+}
